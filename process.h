@@ -2,6 +2,7 @@
 #define PROCESS_H
     #include <stdio.h>
     #include <stdlib.h>
+    #include <string.h>
     #include "horario.h"
     #define MAX_DESCR 50
 

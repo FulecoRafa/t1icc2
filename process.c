@@ -30,7 +30,7 @@ process *processCreator(int priority , horario* hour , char *description){
     process *newProcess;
     newProcess->prior = priority;
     newProcess->chegada = hour;
-    newProcess->descricao = description;
+    strcpy(newProcess->descricao,description);
 }
 
 void processDeleter(process *p){
