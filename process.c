@@ -26,7 +26,7 @@ int printProcess(process *p){
     printf("%d %02d:%02d:%02d %s\n" , p->prior , hourGetter(p->chegada) , minGetter(p->chegada) , secGetter(p->chegada) , p->descricao);
 }
 
-process *processCreator(int priority , horario* hour , char description[MAX_DESCR]){
+process *processCreator(int priority , horario* hour , char *description){
     process *newProcess;
     newProcess->prior = priority;
     newProcess->chegada = hour;
