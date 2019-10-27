@@ -1,10 +1,6 @@
 #include "process.h"
 
-struct _process{
-    int prior;
-    horario *chegada;
-    char descricao[MAX_DESCR];
-};
+
 
 int priorGetter(process *p){
     return (p->prior);
@@ -27,10 +23,11 @@ int printProcess(process *p){
 }
 
 process *processCreator(int priority , horario* hour , char *description){
-    process *newProcess;
+    process *newProcess = malloc(sizeof(process*));
     newProcess->prior = priority;
     newProcess->chegada = hour;
     strcpy(newProcess->descricao,description);
+    return newProcess;
 }
 
 void processDeleter(process *p){
