@@ -12,5 +12,6 @@
 
     horario* hourCreator(char *s);
     void hourDeleter(horario *h);
+    int getHourSeconds(horario* h);
 
 #endif

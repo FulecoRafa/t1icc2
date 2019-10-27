@@ -6,7 +6,11 @@
     #include "horario.h"
     #define MAX_DESCR 50
 
-    typedef struct _process process;
+    typedef struct _process{
+        int prior;
+        horario *chegada;
+        char descricao[MAX_DESCR];
+    } process;
 
     int priorGetter(process *p);
     int processHourGetter(process *p);

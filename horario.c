@@ -26,7 +26,7 @@ horario* hourCreator(char *s){
     hour = strtok(s , ":");
     min = strtok(s , ":");
     sec = s;
-    horario* newHorario;
+    horario* newHorario = malloc(sizeof(horario*));
     newHorario->hh = atoi(hour);
     newHorario->mm = atoi(min);
     newHorario->ss = atoi(sec);
@@ -36,4 +36,9 @@ horario* hourCreator(char *s){
 //Deleta o horario
 void hourDeleter(horario *h){
     free(h);
+}
+
+int getHourSeconds (horario* h) {
+    int seconds = h->ss + h->mm * 60 + h->hh * 3600;
+    return seconds;
 }
