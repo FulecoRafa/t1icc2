@@ -20,16 +20,11 @@ int secGetter(horario *hora){
 }
 
 //Cria um horário
-horario* hourCreator(char *s){
-    char *hour , *min , *sec;
-    printf("Passei");
-    hour = strtok(s , ":");
-    min = strtok(s , ":");
-    sec = s;
+horario* hourCreator(int hour , int min , int sec){
     horario* newHorario = malloc(sizeof(horario*));
-    newHorario->hh = atoi(hour);
-    newHorario->mm = atoi(min);
-    newHorario->ss = atoi(sec);
+    newHorario->hh = hour;
+    newHorario->mm = min;
+    newHorario->ss = sec;
     return newHorario;
 }
 

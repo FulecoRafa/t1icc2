@@ -10,7 +10,7 @@
     int minGetter(horario *hora);
     int secGetter(horario *hora);
 
-    horario* hourCreator(char *s);
+    horario* hourCreator(int hour , int min , int sec);
     void hourDeleter(horario *h);
     int getHourSeconds(horario* h);
 

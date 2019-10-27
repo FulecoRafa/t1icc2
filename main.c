@@ -73,10 +73,10 @@ int main(void){
       scanf("%s" , s);
       if(strcmp(s, "add") == 0){
           int priority;
-          char s_hora[8];
+          int hour , min , sec;
           char comment[MAX_DESCR];
-          scanf("%d %s %s" , &priority , s_hora , comment);
-          process* newProcess = processCreator(priority , hourCreator(s_hora) , comment);
+          scanf("%d %d:%d:%d %s" , &priority , &hour , &min , &sec , comment);
+          process* newProcess = processCreator(priority , hourCreator(hour , min , sec) , comment);
           processes[processesLength] = newProcess;
           processesLength++;
       }else if(s == "exec"){
