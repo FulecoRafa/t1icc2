@@ -10,7 +10,7 @@ Element* createElement(process* process) {
   return newElement;
 };
 
-process** sortByPriority (process** processes, int processesLength) {
+process** sortByPriority (process** processes, int processesLength, int decrease) {
   MergeSortElement* array = malloc(sizeof(MergeSortElement) * processesLength);
   for (int i = 0; i < processesLength; i ++) {
     array[i] = *createMergeSortElement(createElement(processes[i]), processes[i]->prior);
@@ -18,13 +18,14 @@ process** sortByPriority (process** processes, int processesLength) {
   mergesort(array, processesLength, 0);
   process** newArray = malloc(sizeof(process*) * processesLength);
   for (int i = 0; i < processesLength; i++) {
-    newArray[i] = array[i].element->process;
+    if (decrease) newArray[i] = array[processesLength - i - 1].element->process;
+    else newArray[i] = array[i].element->process;
   }
   free(array);
   return newArray;
 }
 
-process** sortBySchedule(process** processes, int processesLength) {
+process** sortBySchedule(process** processes, int processesLength, int decrease) {
   MergeSortElement* array = malloc(sizeof(MergeSortElement) * processesLength);
   for (int i = 0; i < processesLength; i ++) {
     array[i] = *createMergeSortElement(createElement(processes[i]), getHourSeconds(processes[i]->chegada));
@@ -32,7 +33,8 @@ process** sortBySchedule(process** processes, int processesLength) {
   mergesort(array, processesLength, 0);
   process** newArray = malloc(sizeof(process*) * processesLength);
   for (int i = 0; i < processesLength; i++) {
-    newArray[i] = array[processesLength - i - 1].element->process;
+    if (decrease) newArray[i] = array[processesLength - i - 1].element->process;
+    else newArray[i] = array[i].element->process;
   }
   free(array);
   return newArray;
@@ -89,11 +91,11 @@ int main(void){
           break;
       }
   }
-  process** processesSortedByPriority = sortByPriority(processes, processesLength);
-  process** processesSortedBySchedule = sortBySchedule(processes, processesLength);
+  process** processesSortedByPriorityAsc = sortByPriority(processes, processesLength, 0);
+  process** processesSortedByScheduleDesc = sortBySchedule(processes, processesLength, 1);
 
-  printProcesses(processesSortedByPriority, processesLength);
-  printProcesses(processesSortedBySchedule, processesLength);
+  printProcesses(processesSortedByPriorityAsc, processesLength);
+  printProcesses(processesSortedByScheduleDesc, processesLength);
 
   return 0;
 }
