@@ -21,7 +21,7 @@ process** sortByPriority (process** processes, int processesLength, int decrease
     if (decrease) newArray[i] = array[processesLength - i - 1].element->process;
     else newArray[i] = array[i].element->process;
   }
-  free(array);
+//  free(array);
   return newArray;
 }
 
@@ -36,7 +36,7 @@ process** sortBySchedule(process** processes, int processesLength, int decrease)
     if (decrease) newArray[i] = array[processesLength - i - 1].element->process;
     else newArray[i] = array[i].element->process;
   }
-  free(array);
+//  free(array);
   return newArray;
 };
 

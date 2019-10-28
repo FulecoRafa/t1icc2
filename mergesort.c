@@ -58,7 +58,7 @@ void mergesort(MergeSortElement *vector, int n, int decreasing) {
   MergeSortElement* copy = malloc(sizeof(MergeSortElement) * n);
   if (decreasing) decreasingSort(vector, copy, 0, n - 1);
   else sort(vector, copy, 0, n - 1);
-  free(copy);
+//  free(copy);
 }
 
 void merge(MergeSortElement *vector, MergeSortElement *copy, int i, int m, int f) {
