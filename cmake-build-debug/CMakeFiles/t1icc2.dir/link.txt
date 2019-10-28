@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/t1icc2.dir/horario.c.o CMakeFiles/t1icc2.dir/main.c.o CMakeFiles/t1icc2.dir/process.c.o CMakeFiles/t1icc2.dir/mergesort.c.o  -o t1icc2 

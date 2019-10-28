@@ -1,0 +1,3 @@
+/mnt/c/Users/gabri/OneDrive/Documentos/usp/t1icc2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/gabri/OneDrive/Documentos/usp/t1icc2/cmake-build-debug/CMakeFiles/t1icc2.dir
+/mnt/c/Users/gabri/OneDrive/Documentos/usp/t1icc2/cmake-build-debug/CMakeFiles/edit_cache.dir

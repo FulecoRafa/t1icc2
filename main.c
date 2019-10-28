@@ -11,7 +11,7 @@ Element* createElement(process* process) {
 };
 
 process** sortByPriority (process** processes, int processesLength, int decrease) {
-  MergeSortElement* array = malloc(sizeof(MergeSortElement*) * processesLength);
+  MergeSortElement* array = malloc(sizeof(MergeSortElement) * processesLength);
   for (int i = 0; i < processesLength; i ++) {
     array[i] = *createMergeSortElement(createElement(processes[i]), processes[i]->prior);
   }
@@ -26,7 +26,7 @@ process** sortByPriority (process** processes, int processesLength, int decrease
 }
 
 process** sortBySchedule(process** processes, int processesLength, int decrease) {
-  MergeSortElement* array = malloc(sizeof(MergeSortElement*) * processesLength);
+  MergeSortElement* array = malloc(sizeof(MergeSortElement) * processesLength);
   for (int i = 0; i < processesLength; i ++) {
     array[i] = *createMergeSortElement(createElement(processes[i]), getHourSeconds(processes[i]->chegada));
   }
@@ -151,6 +151,7 @@ int main(void){
           }else{
             printf("Invalid option. Use -p or -t\n");
           }
+          printf("\n");
       }else if(strcmp(s , "change") == 0){
           option = option_read();
           if(option == 1){
@@ -171,6 +172,7 @@ int main(void){
           }else{
             printf("Invalid option. Use -p or -t\n");
           }
+          printf("\n");
       }else if(strcmp(s , "quit") == 0){
           break;
       }else{

@@ -30,7 +30,7 @@ process *processCreator(int priority , horario* hour , char *description){
     process *newProcess = malloc(sizeof(process*));
     newProcess->prior = priority;
     newProcess->chegada = hour;
-    strcpy(newProcess->descricao,description);
+    strcpy(newProcess->descricao, description);
     return newProcess;
 }
 
