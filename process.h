@@ -16,6 +16,7 @@
     int processHourGetter(process *p);
     int processMinGetter(process *p);
     int processSecGetter(process *p);
+    char *descriptionGetter(process *p);
     int printProcess(process *p);
     process *processCreator(int priority , horario* hour , char *description);
     void processDeleter(process *p);

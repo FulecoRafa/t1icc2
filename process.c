@@ -18,6 +18,10 @@ int processSecGetter(process *p){
     return (secGetter(p->chegada));
 }
 
+char *descriptionGetter(process *p){
+    return (p->descricao);
+}
+
 int printProcess(process *p){
     printf("%d %02d:%02d:%02d %s\n" , p->prior , hourGetter(p->chegada) , minGetter(p->chegada) , secGetter(p->chegada) , p->descricao);
 }
