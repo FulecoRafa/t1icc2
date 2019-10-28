@@ -1,5 +1,8 @@
 all: main
 
+run:
+	./main
+
 ifneq ($(wildcard *.o),)
 clean:
 	rm *.o
@@ -8,20 +11,17 @@ clean:
 	@echo "No object files!"
 endif
 
-run:
-	./main
-
 main: main.o process.o horario.o mergesort.o
 	gcc horario.o process.o mergesort.o main.o -o main
 
-main.o:
+main.o: main.c
 	gcc -c main.c
 
-process.o: horario.o
+process.o: horario.o process.c
 	gcc -c process.c
 
-horario.o:
+horario.o: horario.c
 	gcc -c horario.c
 
-mergesort.o:
+mergesort.o: mergesort.c
 	gcc -c mergesort.c

@@ -67,7 +67,6 @@ int option_read(){
 int deleteElement(process *deleting , process **processes , int processesLenght){
   for(int i = 0 ; i < processesLenght ; i++){
     if(priorGetter(deleting) == priorGetter(processes[i]) && processHourGetter(deleting) == processHourGetter(processes[i]) && processMinGetter(deleting) == processMinGetter(processes[i]) && processSecGetter(deleting) == processSecGetter(processes[i]) && descriptionGetter(deleting) == descriptionGetter(processes[i])){
-      printf("Entrei\n");
       for(int j = i ; j < (processesLenght-1) ; j++){
         processes[j] = processes[j+1];
       }
@@ -122,7 +121,7 @@ int main(void){
           int priority;
           int hour , min , sec;
           char comment[MAX_DESCR];
-          scanf("%d %d:%d:%d %s" , &priority , &hour , &min , &sec , comment);
+          scanf("%d %d:%d:%d %s " , &priority , &hour , &min , &sec , comment);
           process* newProcess = processCreator(priority , hourCreator(hour , min , sec) , comment);
           processes[processesLength] = newProcess;
           processesLength++;
