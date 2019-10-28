@@ -11,7 +11,7 @@ Element* createElement(process* process) {
 };
 
 process** sortByPriority (process** processes, int processesLength, int decrease) {
-  MergeSortElement* array = malloc(sizeof(MergeSortElement) * processesLength);
+  MergeSortElement* array = malloc(sizeof(MergeSortElement*) * processesLength);
   for (int i = 0; i < processesLength; i ++) {
     array[i] = *createMergeSortElement(createElement(processes[i]), processes[i]->prior);
   }
@@ -26,7 +26,7 @@ process** sortByPriority (process** processes, int processesLength, int decrease
 }
 
 process** sortBySchedule(process** processes, int processesLength, int decrease) {
-  MergeSortElement* array = malloc(sizeof(MergeSortElement) * processesLength);
+  MergeSortElement* array = malloc(sizeof(MergeSortElement*) * processesLength);
   for (int i = 0; i < processesLength; i ++) {
     array[i] = *createMergeSortElement(createElement(processes[i]), getHourSeconds(processes[i]->chegada));
   }
@@ -109,8 +109,8 @@ int changeProcessBySchedule(process** processes , int processesLenght){
 
 int main(void){
   process** processes = malloc(sizeof(process*) * 50);
-  process** processesSortedByPriorityAsc;
-  process** processesSortedByScheduleDesc;
+  process** processesSortedByPriorityAsc = malloc(sizeof(process*) * 50);
+  process** processesSortedByScheduleDesc = malloc(sizeof(process*) * 50);
   int processesLength = 0;
   int option;
   while(TRUE){
@@ -128,7 +128,7 @@ int main(void){
           processesSortedByPriorityAsc = sortByPriority(processes, processesLength, 0);
           processesSortedByScheduleDesc = sortBySchedule(processes, processesLength, 1);
       }else if(strcmp(s , "exec") == 0){
-        int success;
+        int success = 0;
           option = option_read();
           if(option == 1){
             success = deleteElement(processesSortedByPriorityAsc[0] , processes , processesLength);
